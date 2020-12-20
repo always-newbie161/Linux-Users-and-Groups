@@ -21,10 +21,10 @@ def addGroup(groupname):
     success = runcmd(command)
 
 def addUserToGroup(accountname,*groupnames):
-    command = ['sudo',usermod,'-a','-G']
-    for gname in groupnames:
-        command.append(gname)
-    command.append(accountname)
+    command = ['sudo',"usermod",'-a','-G']
+    groups = ",".join(groupnames)
+    command.extend([groups,accountname])
+    print(command)
     success = runcmd(command)
 
 def groupDel(groupname):
@@ -59,8 +59,9 @@ def giverootAccessToUser(accountname):
 def removerootAccessToUser(accountname):
     delUserFromGroup(accountname,'sudo')
 
-    
-      
+
+
+
         
 
-adduser("newuser8","newuser5","shell","/home/qwerty")
+
