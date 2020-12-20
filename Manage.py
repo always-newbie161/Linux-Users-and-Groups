@@ -24,7 +24,6 @@ def addUserToGroup(accountname,*groupnames):
     command = ['sudo',"usermod",'-a','-G']
     groups = ",".join(groupnames)
     command.extend([groups,accountname])
-    print(command)
     success = runcmd(command)
 
 def groupDel(groupname):
